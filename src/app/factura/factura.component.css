@@ -1,0 +1,196 @@
+.factura-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+.producto-selector {
+  margin-bottom: 20px;
+}
+
+.producto-selector-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.producto-selector-input select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn-add-producto {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add-producto:hover {
+  background-color: #45a049;
+}
+
+.ticket-list {
+  width: 60%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-section {
+  width: 40%;
+  padding: 25px;
+  background-color: #e9e9e9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.form-section h2 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn-main {
+  width: 100%;
+  padding: 10px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-main:hover {
+  background-color: #3d3d3d;
+}
+
+.ticket {
+  width: 350px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border: 2px solid #ccc;
+  font-family: 'Courier New', monospace;
+  color: #000000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  text-align: center;
+  font-size: 18px;
+}
+
+.productos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.productos th,
+.productos td {
+  text-align: center;
+  padding: 6px;
+}
+
+.productos th {
+  border-bottom: 1px solid #000;
+}
+
+.totales {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.totales p {
+  margin: 2px 0;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+.acciones {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-edit {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-edit:hover {
+  background-color: #3d3d3d;
+}
+
+.btn-delete {
+  background-color: #888;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-delete:hover {
+  background-color: #666;
+}
+.factura-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: nowrap; /* ← Asegura que no se rompa a otra línea */
+}
+
+.ticket-list {
+  width: 60%;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.form-section {
+  width: 40%;
+  position: sticky;
+  top: 20px;
+}
+

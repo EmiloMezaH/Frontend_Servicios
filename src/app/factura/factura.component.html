@@ -1,0 +1,100 @@
+<div class="factura-layout">
+  <div class="ticket-list">
+    <h2>Facturas</h2>
+
+    <div *ngFor="let factura of facturas" class="ticket">
+      <div class="title">
+        <h3>Factura</h3>
+        <p>{{ factura.fecha }}</p>
+      </div>
+
+      <table class="productos">
+        <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cant.</th>
+          <th>Precio</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of factura.productos">
+          <td>{{ p.nombre_producto }}</td>
+          <td>{{ p.cantidad }}</td>
+          <td>{{ p.precio_unitario | currency:'USD' }}</td>
+          <td>{{ p.total | currency:'USD' }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="totales">
+        <p><strong>Subtotal:</strong> {{ factura.subtotal | currency:'USD' }}</p>
+        <p><strong>IVA:</strong> {{ factura.iva | currency:'USD' }}</p>
+        <p><strong>Total:</strong> {{ factura.total | currency:'USD' }}</p>
+      </div>
+
+      <div class="acciones">
+        <button class="btn-edit" (click)="editarFactura(factura)">Editar</button>
+        <button class="btn-delete" (click)="eliminarFactura(factura.id_factura)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario de Factura -->
+  <div class="form-section">
+    <h2>{{ modoEditar ? 'Editar Factura' : 'Nueva Factura' }}</h2>
+
+    <form (ngSubmit)="guardarFactura()" #facturaForm="ngForm">
+
+      <!-- Agregar Producto Bonito -->
+      <div class="producto-selector">
+        <label for="productoSeleccionado">Seleccionar Producto:</label>
+        <div class="producto-selector-input">
+          <select [(ngModel)]="productoSeleccionado" name="productoSeleccionado" id="productoSeleccionado">
+            <option [ngValue]="null">Seleccione un producto</option>
+            <option *ngFor="let producto of productosDisponibles" [ngValue]="producto">
+              {{ producto.nombre_producto }} - {{ producto.precio_unitario | currency:'USD' }}
+            </option>
+          </select>
+          <button type="button" class="btn-add-producto" (click)="agregarProducto()">Agregar</button>
+        </div>
+      </div>
+      <h3>Productos Agregados</h3>
+      <table class="productos">
+        <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of facturaActual.productos">
+          <td>{{ p.nombre_producto }}</td>
+          <td>{{ p.precio_unitario | currency:'USD' }}</td>
+          <td>
+            <input type="number" [(ngModel)]="p.cantidad" name="cantidad_{{p.nombre_producto}}" (ngModelChange)="actualizarTotales()" min="1" />
+          </td>
+          <td>{{ p.total | currency:'USD' }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Subtotales -->
+      <div class="totales">
+        <p><strong>Subtotal:</strong> {{ facturaActual.subtotal | currency:'USD' }}</p>
+        <p><strong>IVA:</strong> {{ facturaActual.iva | currency:'USD' }}</p>
+        <p><strong>Total:</strong> {{ facturaActual.total | currency:'USD' }}</p>
+      </div>
+
+      <button class="btn-main" type="submit">
+        {{ modoEditar ? 'Actualizar Factura' : 'Crear Factura' }}
+      </button>
+
+      <button *ngIf="modoEditar" class="btn-delete" type="button" (click)="nuevaFactura()">Nueva Factura</button>
+
+    </form>
+  </div>
+
+</div>

@@ -1,27 +1,45 @@
-# FacturacionFronted
+# Frontend
+Este proyecto implementa el frontend de un sistema conjunto de Gestión de Productos y generación de tickets para facturación electrónica.
+Permite gestionar productos y crear facturas dinámicamente.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.16.
+## Las funcionalidades principales son: 
+- Lista de Productos: Visualizar productos existentes junto con su precio unitario.
+- Crear Producto: Agregar nuevos productos especificando nombre y precio.
+- Editar Producto: Modificar productos registrados.
+- Eliminar Producto: Borrar productos existentes.
+- Crear Factura: Seleccionar productos registrados anteriormente y definir cantidades para generar una factura detallada.
+- Cálculos Automáticos: El sistema calcula automáticamente el subtotal, IVA y total de cada factura.
 
-## Development server
+## Flujo de trabajo
+- Crear productos mediante el formulario de "Nuevo Producto", agilizando el proceso de registro.
+- Visualizar los productos en la sección "Lista de Productos".
+- Generar facturas seleccionando productos y especificando la cantidad de dichos productos.
+- El sistema realiza automáticamente el cálculo del Subtotal, IVA y Total.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologías utilizadas
+- HTML5
+- CSS3
+- TypeScript
+- HttpClient (para llamadas REST)
+- MySQL (como base de datos a través del backend)
 
-## Code scaffolding
+## Estructura general
+### Productos
+- Los productos se almacenan en una base de datos MySQL, gestionada a través del backend.
+- Operaciones disponibles: Crear, Leer, Actualizar y Eliminar productos (CRUD).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Facturación
+- Se generan facturas basadas en los productos disponibles.
+- Cada factura incluye:
+    - Fecha y hora de creación.
+    - Listado de productos con cantidad, precio unitario y total por producto.
+    - Subtotal, IVA y Total general.
 
-## Build
+### Interfaz de Usuario
+- Proporciona un diseño sencillo, limpio y responsivo.
+- Formularios específicos para gestionar productos y crear facturas.
+- Validaciones básicas al crear o editar productos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Notas adicionales
+- Este frontend depende del backend de Gestión de Productos y Facturación Electrónica para la persistencia de datos.
+- Todas las operaciones CRUD interactúan mediante servicios REST expuestos por el backend.
